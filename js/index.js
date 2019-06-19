@@ -6,38 +6,49 @@
 //     alert("It\'s Adventure Time!");
 // });
 
-// nav links using 'focus'
+// stop navigation items from refreshing the page using preventDefault
+
+const nav = document.querySelector('nav');
+nav.addEventListener('click', event => {
+    console.log("I was clicked");
+    event.preventDefault;
+})
+
+// nav links using 'click'
 
 const navLinks = document.querySelectorAll('nav a');
-navLinks[0].addEventListener('focus', highlight);
-navLinks[1].addEventListener('focus', highlight);
-navLinks[2].addEventListener('focus', highlight);
-navLinks[3].addEventListener('focus', highlight);
+//console.log(navLinks)
 
-function highlight() {
-    if (event.target.style.backgroundColor !== 'lightblue') {
-        event.target.style.backgroundColor = 'lightblue';
-    } else if (event.target.style.backgroundColor === 'lightblue') {
-        event.target.addEventListener('blur', removeColor)
+
+navLinks.forEach(item => item.addEventListener('click', randomColor))
+
+function randomColor() {
+    let min = 100000;
+    let max = 500000;
+    let randomNumber = Math.floor(Math.random() * (+max - +min));
+    if (randomNumber < 10000) {
+        randomNumber += 10000;
     }
+    event.target.style.color = `#${randomNumber}`;
+    console.log(`#${randomNumber}`)
 }
 
-function removeColor() {
-    event.target.style.backgroundColor === '';
-    alert("i made it")
-}
 
-//Images using 'mouseover' & 'mouseout'
+//When mousing over images become grayscale & revert using 'mouseover' & 'mouseout'
+const images = document.querySelectorAll('img');
+console.log(images)
 
-const image1 = document.getElementsByTagName('img')[0];
-const image2 = document.getElementsByTagName('img')[1];
-const image3 = document.getElementsByTagName('img')[2];
-const image4 = document.getElementsByTagName('img')[3];
+images.forEach(item => item.addEventListener('mouseover', grayScaleImg));
 
-image1.addEventListener('mouseover', grayScaleImg);
-image2.addEventListener('mouseover', grayScaleImg);
-image3.addEventListener('mouseover', grayScaleImg);
-image4.addEventListener('mouseover', grayScaleImg);
+// const image1 = document.getElementsByTagName('img')[0];
+// const image2 = document.getElementsByTagName('img')[1];
+// const image3 = document.getElementsByTagName('img')[2];
+// const image4 = document.getElementsByTagName('img')[3];
+
+// image1.addEventListener('mouseover', grayScaleImg);
+// image2.addEventListener('mouseover', grayScaleImg);
+// image3.addEventListener('mouseover', grayScaleImg);
+// image4.addEventListener('mouseover', grayScaleImg);
 
 
 function grayScaleImg() {
@@ -64,3 +75,18 @@ text1.addEventListener('dblclick', background);
 function background() {
     event.target.style.backgroundColor = "orange";
 }
+
+//removed styling
+//navLinks.forEach(item => item.addEventListener('focus', highlight)
+// function highlight() {
+//     if (event.target.style.backgroundColor !== 'lightblue') {
+//         event.target.style.backgroundColor = 'lightblue';
+//     } else if (event.target.style.backgroundColor === 'lightblue') {
+//         event.target.addEventListener('blur', removeColor)
+//     }
+// }
+
+// function removeColor() {
+//     event.target.style.backgroundColor === '';
+//     alert("i made it")
+// }
