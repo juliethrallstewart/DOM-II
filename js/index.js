@@ -31,7 +31,9 @@ function randomColor() {
         randomNumber += 10000;
     }
     event.target.style.color = `#${randomNumber}`;
-    console.log(`#${randomNumber}`)
+    //console.log(`#${randomNumber}`)
+    event.stopPropagation()
+
 }
 
 
