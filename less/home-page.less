@@ -19,9 +19,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    z-index: -1;
 
-   
-    
+
+
     .text-content {
       width: 48%;
       padding-right: 1%;
@@ -105,10 +106,12 @@
         width: 80%;
         margin: 0 auto 30px;
       }
-      
+
       .btn {
-        .button-creator(200px, 45px, @button-bg, @white, 1.8rem);     
+        .button-creator(200px, 45px, @button-bg, @white, 1.8rem);
       }
     }
   }
-}// home
+}
+
+// home

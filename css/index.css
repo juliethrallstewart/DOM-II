@@ -242,6 +242,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  z-index: -1;
 }
 .home .content-section .text-content {
   width: 48%;
